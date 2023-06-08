@@ -1,3 +1,3 @@
 # Ignore .env.
 /.env
-./firststep/path
+/firststep/path/
