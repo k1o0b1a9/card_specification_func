@@ -5,14 +5,15 @@ async function extracting_element(csv) {
     let date;
 
     for (let element of csv) {
-        if (moment(element[process.env.DATE], process.env.FORMAT, true).isValid()) {
+        const elementDate = moment(element[process.env.DATE], process.env.FORMAT, true);
+        if (elementDate.isValid()) {
             if (!date) {
-                date = moment(element[process.env.DATE], process.env.FORMAT).format('YYYY_MM');
+                date = elementDate.format('YYYY_MM');
             }
-            if (isDefinedAndNotNull(element[process.env.LOCATION]) && isDefinedAndNotNull(element[process.env.PRICE])) {
-                let location = element[process.env.LOCATION];
-                let price = element[process.env.PRICE].replace(/\\|,/g, '');
-                newArray.push({location: location, price: parseInt(price)});
+            const location = element[process.env.LOCATION];
+            const price = element[process.env.PRICE] && element[process.env.PRICE].replace(/\\|,/g, '');
+            if (isDefinedAndNotNull(location) && isDefinedAndNotNull(price)) {
+                newArray.push({location, price: parseInt(price)});
             }
         }
     }
