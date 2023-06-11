@@ -39,6 +39,6 @@ node main.js
 
 ## 開発者
 
-- [Your Name](mailto:your-email@example.com)
+- [Keigo Kobayashi](mailto:bako95518@gmail.com)
 
 上記READMEはあくまで一例であり、プロジェクトの詳細に合わせて必要に応じて修正してください。
