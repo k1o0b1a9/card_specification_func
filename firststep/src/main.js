@@ -15,13 +15,11 @@ const aggregate_csv = require('./aggregate_csv.js');
 (async () => {
     const dataFromCsv = await csv_output(process.env.CREDIT_SPEC_LOCATION);
 
-    const detail_list = await extracting_element(dataFromCsv);
+    const {newArray: detail_list, date} = await extracting_element(dataFromCsv);
 
     const aggregate_result=await aggregate_csv(detail_list);
 
-    const docRef = db.collection('credit-card-statistics').doc('June-2023');
+    const docRef = db.collection('credit-card-statistics').doc(date);
 
     await docRef.set(aggregate_result);
-
-    console.log('Data successfully saved.');
 })();
