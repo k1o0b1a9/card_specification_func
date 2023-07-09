@@ -13,7 +13,7 @@
 
 `.env` ファイルをプロジェクトのルートディレクトリに設置し、以下の環境変数を設定します。
 
-- `CREDIT_SPEC_LOCATION`: CSVファイルのパス
+- `SPECIFICATION`: CSVファイルのディレクトリ
 - `DATE`: CSVの日付列の名前
 - `FORMAT`: CSVの日付の形式
 - `LOCATION`: CSVの地点列の名前
